@@ -20,13 +20,13 @@ terrain_layer = pdk.Layer(
 geojson = pdk.Layer(
     "GeoJsonLayer",
     'https://raw.githubusercontent.com/muntakim1/flood-prone-gis/refs/heads/main/data/flood_information.geojson',	
-    opacity=0.8,
+    opacity=1,
     stroked=False,
     filled=True,
     extruded=True,
     wireframe=True,
     get_elevation="properties.elevation",
-    get_fill_color="['properties.color' == 0 ? 135 : 205, 'properties.color' == 0 ? 206 : 103, 'properties.color' == 0 ? 250 : 150]",
+    get_fill_color="properties.color",
     get_line_color=[135, 206, 235],
 )
 view_state = pdk.ViewState(latitude=23.232100, longitude=90.663078, zoom=9.5, bearing=10, pitch=45)
