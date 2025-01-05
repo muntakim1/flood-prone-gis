@@ -25,7 +25,7 @@ geojson = pdk.Layer(
     filled=True,
     extruded=True,
     wireframe=True,
-    get_elevation="properties.valuePerSqm / 20",
+    get_elevation="properties.elevation / 20",
     get_fill_color="[135, 206, 235]",
     get_line_color=[135, 206, 235],
 )
