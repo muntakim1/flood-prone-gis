@@ -19,17 +19,17 @@ terrain_layer = pdk.Layer(
 
 geojson = pdk.Layer(
     "GeoJsonLayer",
-    'http://10.100.0.155:8000/data/tiff1212.geojson',	
+    'https://raw.githubusercontent.com/muntakim1/flood-prone-gis/refs/heads/main/data/filtered.geojson',	
     opacity=0.8,
     stroked=False,
     filled=True,
     extruded=True,
     wireframe=True,
     get_elevation="properties.valuePerSqm / 20",
-    get_fill_color="[255, 255, properties.NDVI * 255]",
-    get_line_color=[255, 255, 255],
+    get_fill_color="[135, 206, 235]",
+    get_line_color=[135, 206, 235],
 )
-view_state = pdk.ViewState(latitude=23.684994, longitude=90.3563, zoom=10.5, bearing=10, pitch=30)
+view_state = pdk.ViewState(latitude=23.232100, longitude=90.663078, zoom=11.5, bearing=10, pitch=45)
 
 r = pdk.Deck([terrain_layer,geojson], initial_view_state=view_state)
 deck_component = dash_deck.DeckGL(r.to_json(), id="deck-gl", mapboxKey=mapbox_api_token)
