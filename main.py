@@ -26,7 +26,7 @@ geojson = pdk.Layer(
     extruded=True,
     wireframe=True,
     get_elevation="properties.elevation",
-    get_fill_color="properties.color",
+    get_fill_color="['properties.color' == '#Ffc0cb' ? [135, 206, 250] : [255, 255, 255]]",
     get_line_color=[135, 206, 235],
 )
 view_state = pdk.ViewState(latitude=23.232100, longitude=90.663078, zoom=9.5, bearing=10, pitch=45)
