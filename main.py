@@ -26,12 +26,13 @@ geojson = pdk.Layer(
     extruded=True,
     wireframe=True,
     get_elevation="properties.elevation",
-    get_fill_color="['properties.color' == '#Ffc0cb' ? [135, 206, 250] : [255, 255, 255]]",
+    get_fill_color="properties.color",
     get_line_color=[135, 206, 235],
+    
 )
 view_state = pdk.ViewState(latitude=23.232100, longitude=90.663078, zoom=9.5, bearing=10, pitch=45)
 
-r = pdk.Deck([terrain_layer,geojson], initial_view_state=view_state)
+r = pdk.Deck([terrain_layer,geojson], initial_view_state=view_state,tooltip=True)
 deck_component = dash_deck.DeckGL(r.to_json(), id="deck-gl", mapboxKey=mapbox_api_token)
 
 app = Dash(__name__)
